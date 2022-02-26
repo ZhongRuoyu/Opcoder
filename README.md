@@ -27,7 +27,9 @@ To embed this in an HTML page, do this:
     function convertLines(lines) {
         return lines
             .split("\n")
-            .map(line => `${convert(line).toUpperCase()} // ${line}`);
+            .map(line => (line.trim().length !== 0)
+                ? `${convert(line).toUpperCase()} // ${line}`
+                : line);
     }
 
     document.getElementById("input").addEventListener("input", e => {

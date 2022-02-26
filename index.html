@@ -206,7 +206,9 @@ https://personal.ntu.edu.sg/smitha/OPCoder/OPCoder/converter.html
         function convertLines(lines) {
             return lines
                 .split("\n")
-                .map(line => `${convert(line).toUpperCase()} // ${line}`);
+                .map(line => (line.trim().length !== 0)
+                    ? `${convert(line).toUpperCase()} // ${line}`
+                    : line);
         }
 
         document.getElementById("input").addEventListener("input", e => {
